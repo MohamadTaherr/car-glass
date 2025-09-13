@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/admin/css/dashboard.css">
+</head>
+<body>
+    <script src="/admin/js/auth.js"></script> <!-- This script must run first to protect the page -->
+
+    <header class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <button id="logout-button">Logout</button>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="card">
+            <h2>Add New Product</h2>
+            <form id="add-product-form">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" id="brand" name="brand" required>
+                </div>
+                <div class="form-group">
+                    <label for="cost_price">Cost Price</label>
+                    <input type="number" id="cost_price" name="cost_price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="selling_price">Selling Price</label>
+                    <input type="number" id="selling_price" name="selling_price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="number" id="stock" name="stock" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" name="category">
+                </div>
+                <button type="submit">Add Product</button>
+            </form>
+            <p id="add-product-status"></p>
+        </div>
+        <div class="card">
+            <h2>Manage Products</h2>
+            <div id="products-list">
+                <!-- Product list will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="/admin/js/dashboard.js"></script>
+</body>
+</html>
