@@ -11,6 +11,12 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the 'admin' directory under the /admin route
+app.use('/admin', express.static(path.join(__dirname, 'admin')));
+
+
 // Import routes for admin dashboard
 const authRoutes = require('./routes/auth');
 const productsRoutes = require('./routes/products');
@@ -38,10 +44,7 @@ app.use('/api/public/testimonials', publicTestimonialsRoutes);
 app.use('/api/public/contact', publicContactRoutes);
 app.use('/api/public/bookings', publicBookingsRoutes);
 
-// Simple welcome route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Car Glass Repair Shop API!');
-});
+// The root route will now serve 'public/index.html' by default
 
 // Start the server
 app.listen(port, () => {
